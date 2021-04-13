@@ -16,11 +16,8 @@ jobs:
           tools: composer:v2
           php-version: '8'
 
+      - name: Check directory
+        run: ls -al
+
       - name: Validate composer
         run: composer validate --strict
-
-      - name: Run composer install
-        run: composer install
-
-      - name: Run unit tests
-        run: ./vendor/bin/phpunit -c phpunit.xml
