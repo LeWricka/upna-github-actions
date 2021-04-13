@@ -16,7 +16,7 @@ jobs:
           tools: composer:v2
           php-version: '8'
 
-      - name: Validate composer
+      - name: Validate composerssdf
         run: composer validate --strict
 
       - name: Run composer install
