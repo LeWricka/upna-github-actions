@@ -1,10 +1,23 @@
 name: learn-github-actions
-on: [push]
+on:
+  push:
+    branches:
+      - develop
+
 jobs:
-  check-bats-version:
+  validate-project:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-      - run: npm install -g bats
-      - run: bats -v
+      - uses: actions/checkout@v1
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          tools: composer:v2
+          php-version: '7.4'
+
+      - name: Check directory
+        run: ls -al
+
+      - name: Validate composer
+        run: composer validate --strict
