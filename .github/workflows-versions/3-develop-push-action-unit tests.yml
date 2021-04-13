@@ -24,9 +24,3 @@ jobs:
 
       - name: Run unit tests
         run: ./vendor/bin/phpunit -c phpunit.xml
-
-      - name: Run php lint on production files
-        run: php -l src -q
-
-      - name: Run php lint on test files
-        run: php -l tests -q
